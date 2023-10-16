@@ -22,7 +22,7 @@ modelo = LinearRegression()
 modelo.fit(x_train, y_train)
 '''
 
-modelo = pickle.load(open('mlops-deploy\models\modelo.sav', 'rb'))
+modelo = pickle.load(open('models\modelo.sav', 'rb'))
 colunas = ['tamanho', 'ano', 'garagem']
 
 app = Flask(__name__)
@@ -57,4 +57,5 @@ def cotacao():
     return jsonify(preco=preco[0])
 
 
-app.run(debug=True, host='0.0.0.0')
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0')
